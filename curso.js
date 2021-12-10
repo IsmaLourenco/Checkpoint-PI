@@ -13,28 +13,28 @@ const curso = {
     estudante.pedro,
     estudante.kelly
   ],
-  addAluno: (nome, faltas, notas) => {
+  addAluno: function(nome, faltas, notas) {
     this.listaDeEstudantes.push(new aluno.construtor(nome, faltas, notas));
   },
 
-  aprovados: (estudante) => {
+  aprovados: function(estudante) {
     const media = aluno.calcMedia(estudante);
 
     if (media >= this.notaDeAprovacao && estudante.qtdFaltas < this.maxFaltas) {
-      `${estudante.nome}: Aprovação geral`;
+      return `${estudante.nome}: Aprovação geral`;
     } else if (media > this.notaDeAprovacao * 1.1 && estudante.qtdFaltas === this.maxFaltas) {
-      `${estudante.nome}: Aprovado por nota`;
+      return `${estudante.nome}: Aprovado por nota`;
     } else {
-      `${estudante.nome}: Reprovado`;
+      return `${estudante.nome}: Reprovado`;
     }
   },
-  listaDeAprovados: () => {
+  listaDeAprovados: function() {
     let geral = [];
 
     this.listaDeEstudantes.forEach(estudante => {
       geral.push(this.aprovados(estudante));
     });
-    geral;
+    return geral;
   }
 
 }
@@ -47,3 +47,4 @@ alunosAprovados.forEach(aprovado => {
   console.log(aprovado);
 });
 
+console.log(curso);

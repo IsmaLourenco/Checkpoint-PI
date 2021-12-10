@@ -7,17 +7,17 @@ const aluno = {
     this.qtdFaltas = faltas
     this.notas = notas
   },
-  calcMedia: aluno => {
+  calcMedia: function(aluno) {
     let total = 0
 
     aluno.notas.forEach(nota => {
       total += nota
-    })
+    });
 
-    total / aluno.notas.length
+    return total / aluno.notas.length;
   },
-  outraFalta: aluno => {
-    aluno.qtdFaltas++
+  outraFalta: function(aluno) {
+   aluno.qtdFaltas++;
   }
 }
 
